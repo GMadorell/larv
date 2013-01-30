@@ -1,5 +1,6 @@
 # encoding: UTF-8
 from larv.Entity import Entity
+from larv.Component import Component
 
 """
 Notes: -Decide whether getEntitiesHavingComponent should return an
@@ -102,17 +103,19 @@ class EntityManager:
         """
         Adds the given component to the given entity.
         @entity: must be a entity instance, not an id.
-        @component: component instance or class name.
+        @component: component instance.
         """
         assert isinstance(entity, Entity)
-        if not isinstance(component, str):
-            component = self.getComponentName(component)
+        assert isinstance(component, Component)
+        component_name = self.getComponentName(component)
         # Use setdefault so if it didn't exist we create a new dict
-        second_dict = self.__components_by_class.setdefault(component, {})
+        second_dict = self.__components_by_class.setdefault(component_name, {})
         second_dict[entity.id] = component
 
         ## DEBUG
-        return self.__components_by_class
+        # print(entity.id, )
+        # print (self.__components_by_class)
+        # return self.__components_by_class
         ## /DEBUG
 
     def removeComponent(self, entity, component):
@@ -188,7 +191,8 @@ class EntityManager:
 
     def getEntitiesHavingComponents(self, *args):
         """
-        Returns a list of all the entities that have all the args.
+        Returns a list of all the entities that have all the args (which will be
+        components).
         @args: indefinite tuple of arguments. They should all be components
                instances or components names.
         """

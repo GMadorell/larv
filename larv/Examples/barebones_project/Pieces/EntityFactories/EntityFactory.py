@@ -1,5 +1,6 @@
-import larv
 import pygame
+
+import larv
 from Pieces.Components import *
 
 class EntityFactory(larv.EntityFactory):
@@ -7,7 +8,7 @@ class EntityFactory(larv.EntityFactory):
     Used for creating entities.
     """
     def createHero(self):
-        sprite = pygame.image.load('placeholder.png')
+        sprite = pygame.image.load('Images/placeholder.png')
 
         new_entity = self.entityManager.createEntity()
         new_position_component = PositionComponent(50,50)

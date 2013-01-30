@@ -1,11 +1,10 @@
 import pygame
 import sys
 from pygame.locals import *
-from __ColorConstants import *
+from ColorConstants import *
 
 import larv
-from EntityFactory import EntityFactory
-from RenderSystem import RenderSystem
+import Pieces
 
 ### GLOBALS
 FPS = 60
@@ -28,14 +27,14 @@ def main():
 
 def runGame():
     # Initialize the framework
-    entity_factory = EntityFactory()
+    entity_factory = Pieces.EntityFactory()
     engine = larv.Engine(entity_factory)
 
     # Create entities
     entity_factory.createHero()
 
     # Create systems
-    render_system = RenderSystem(DISPLAYSURF)
+    render_system = Pieces.RenderSystem(DISPLAYSURF)
 
     # Add systems to the engine
     engine.addSystem(render_system, 0) # priority, less is before

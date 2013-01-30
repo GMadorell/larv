@@ -4,6 +4,19 @@ Larv was thought out to be used in games.
 It's currently tested in python 3.2.3.
 Inspired by and using the style of: http://t-machine.org/index.php/2007/09/03/entity-systems-are-the-future-of-mmog-development-part-1/
 
+h2. How to install/use
+
+Simply copy/paste the larv folder to your python installation.
+For example, say that you have your python installed in:
+    C:\Python
+Then you would need to paste the folder to:
+    C:\Python\Lib
+So that in the end the following path exists:
+    C:\Python\Lib\larv
+
+Then you are free to test if that worked opening the python idle and doing a fast:
+    import larv
+
 h2. Documentation
 
 There is no documentation as of now, but you are free to read the comments in the code, which

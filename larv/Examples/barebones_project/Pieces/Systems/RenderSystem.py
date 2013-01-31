@@ -14,17 +14,14 @@ class RenderSystem(larv.System):
         self.surface = surface
 
     def update(self):
-        list_entities = self.entityManager.getEntitiesHavingComponents(
+        list_entities = self.entity_manager.getEntitiesHavingComponents(
                             PositionComponent.__name__,
                             RenderComponent.__name__)
 
         for entity in list_entities:
-            position_comp = self.entityManager.getComponent(entity, PositionComponent.__name__)
-            render_comp = self.entityManager.getComponent(entity, RenderComponent.__name__)
+            position_comp = self.entity_manager.getComponent(entity, PositionComponent.__name__)
+            render_comp = self.entity_manager.getComponent(entity, RenderComponent.__name__)
 
             x = position_comp.x
             y = position_comp.y
             self.surface.blit(render_comp.sprite, (x, y))
-
-if __name__ == "__main__":
-    __package__ = "barebones_project"

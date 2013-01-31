@@ -19,9 +19,8 @@ Then you are free to test if that worked opening the python idle and doing a fas
 
 h2. Documentation
 
-There is no documentation as of now, but you are free to read the comments in the code, which
-should be pretty much all you need in order to make it work.
-If you have any problems, feel free to ask me.
+There is a basic documentation included in the form of html files with the project,
+to read it, just open the files with your prefered browser.
 
 h2. License
 

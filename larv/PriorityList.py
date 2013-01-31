@@ -15,6 +15,7 @@ class PriorityList:
           less priority as they get higher.
     """
     def __init__(self):
+        """Constructor. This class only needs a list."""
         self.list = []
 
     def add(self, item, order_value):
@@ -30,9 +31,15 @@ class PriorityList:
         else:
             self.list.insert(0, (item, order_value))
 
+    def change(self, item, order_value):
+        """Changes the given item's order_value."""
+        assert item in self.list
+        self.remove(item)
+        self.add(item, order_value)
+
     def remove(self, item):
         """Removes the given item from the priority list."""
-        self.list.remove(item)
+        return self.list.remove(item)
 
     def __iter__(self):
         """Iterates over the content values of the list."""
@@ -40,6 +47,7 @@ class PriorityList:
             yield item[0]
 
     def __str__(self):
+        """Returns a string representation."""
         return 'PriorityList: {0}'.format(str(self.list))
 
 

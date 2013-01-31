@@ -21,8 +21,8 @@ class Component(metaclass = abc.ABCMeta):
 
     """
     # EXAMPLE COMPONENT:
-    import Component
-    class HealthComponent(Component.Component):
+    import larv
+    class HealthComponent(larv.Component):
         def __init__(self, health):
             self.health = health
     # And that's it!

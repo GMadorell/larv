@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: class GroupManager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>larv.GroupManager</strong> = <a name="larv.GroupManager">class GroupManager</a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Allows&nbsp;the&nbsp;entity&nbsp;manager&nbsp;to&nbsp;add&nbsp;entities&nbsp;to&nbsp;groups&nbsp;and&nbsp;fetch&nbsp;for&nbsp;them.<br>
+For&nbsp;example,&nbsp;we&nbsp;could&nbsp;have&nbsp;a&nbsp;group&nbsp;called&nbsp;'hero'&nbsp;and&nbsp;add&nbsp;the&nbsp;hero&nbsp;to&nbsp;it,<br>
+and&nbsp;then&nbsp;we&nbsp;could&nbsp;fetch&nbsp;for&nbsp;all&nbsp;the&nbsp;entities&nbsp;that&nbsp;are&nbsp;from&nbsp;the&nbsp;'hero'<br>
+group,&nbsp;getting&nbsp;only&nbsp;the&nbsp;hero,&nbsp;obviously.<br>
+&nbsp;<br>
+Usage:<br>
+&nbsp;&nbsp;Binded&nbsp;to&nbsp;Factories&nbsp;and&nbsp;Systems&nbsp;by&nbsp;default&nbsp;(when&nbsp;they're&nbsp;assigned&nbsp;to&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;engine,&nbsp;the&nbsp;engine&nbsp;does&nbsp;that&nbsp;in&nbsp;the&nbsp;background),&nbsp;as&nbsp;they're&nbsp;where&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;GroupManagers&nbsp;will&nbsp;be&nbsp;most&nbsp;used.<br>
+&nbsp;&nbsp;Basic&nbsp;usage&nbsp;is:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;At&nbsp;the&nbsp;factory,&nbsp;when&nbsp;the&nbsp;entity&nbsp;gets&nbsp;created&nbsp;it&nbsp;might&nbsp;be&nbsp;assigned&nbsp;to&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;In&nbsp;some&nbsp;systems,&nbsp;it&nbsp;may&nbsp;be&nbsp;convenient&nbsp;to&nbsp;ask&nbsp;for&nbsp;a&nbsp;certain&nbsp;group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;entities.&nbsp;For&nbsp;example,&nbsp;a&nbsp;system&nbsp;that&nbsp;only&nbsp;acts&nbsp;on&nbsp;the&nbsp;Hero,&nbsp;may<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;for&nbsp;it&nbsp;using&nbsp;self.<strong>group_manager</strong>.<a href="#larv.GroupManager-get">get</a>('hero')<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="GroupManager-__init__"><strong>__init__</strong></a>(self, engine)</dt><dd><tt>Constructor.<br>
+@engine:&nbsp;larv.Engine.Engine&nbsp;instance.<br>
+@entitiesByGroup:&nbsp;dictionary,&nbsp;key&nbsp;=&nbsp;group,&nbsp;value&nbsp;=&nbsp;set&nbsp;of&nbsp;entities</tt></dd></dl>
+
+<dl><dt><a name="GroupManager-add"><strong>add</strong></a>(self, entity, group)</dt><dd><tt>Adds&nbsp;the&nbsp;given&nbsp;entity&nbsp;to&nbsp;the&nbsp;given&nbsp;grup.<br>
+Note&nbsp;that&nbsp;a&nbsp;entity&nbsp;can't&nbsp;be&nbsp;in&nbsp;the&nbsp;same&nbsp;group&nbsp;twice.<br>
+@entity:&nbsp;lard.Entity.Entity&nbsp;instance<br>
+@group:&nbsp;name&nbsp;(string)&nbsp;of&nbsp;the&nbsp;group</tt></dd></dl>
+
+<dl><dt><a name="GroupManager-get"><strong>get</strong></a>(self, *args)</dt><dd><tt>Returns&nbsp;a&nbsp;set&nbsp;of&nbsp;all&nbsp;the&nbsp;entities&nbsp;that&nbsp;are&nbsp;in&nbsp;every&nbsp;arg&nbsp;(which&nbsp;are&nbsp;supposed<br>
+to&nbsp;be&nbsp;groups).<br>
+When&nbsp;used&nbsp;with&nbsp;one&nbsp;arg&nbsp;(most&nbsp;common&nbsp;use),&nbsp;will&nbsp;return&nbsp;only&nbsp;the&nbsp;entities<br>
+that&nbsp;are&nbsp;in&nbsp;that&nbsp;group.<br>
+@*args:&nbsp;name&nbsp;(string)&nbsp;of&nbsp;the&nbsp;groups&nbsp;that&nbsp;will&nbsp;be&nbsp;fetched.</tt></dd></dl>
+
+<dl><dt><a name="GroupManager-getGroup"><strong>getGroup</strong></a>(self, entity)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;groups&nbsp;the&nbsp;entity&nbsp;is&nbsp;part&nbsp;of.<br>
+@entity:&nbsp;larv.Entity.Entity&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="GroupManager-isInGroup"><strong>isInGroup</strong></a>(self, entity, group)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;entity&nbsp;is&nbsp;contained&nbsp;in&nbsp;the&nbsp;given&nbsp;group,&nbsp;<br>
+False&nbsp;otherwise.<br>
+@entity:&nbsp;larv.Entity.Entity&nbsp;instance<br>
+@group:&nbsp;name&nbsp;(string)&nbsp;of&nbsp;the&nbsp;group</tt></dd></dl>
+
+<dl><dt><a name="GroupManager-remove"><strong>remove</strong></a>(self, entity, group)</dt><dd><tt>Removes&nbsp;the&nbsp;given&nbsp;entity&nbsp;from&nbsp;the&nbsp;given&nbsp;group.<br>
+@entity:&nbsp;lard.Entity.Entity&nbsp;instance<br>
+@group:&nbsp;name&nbsp;(string)&nbsp;of&nbsp;the&nbsp;group</tt></dd></dl>
+
+<dl><dt><a name="GroupManager-removeCompletely"><strong>removeCompletely</strong></a>(self, entity)</dt><dd><tt>Removes&nbsp;given&nbsp;entity&nbsp;from&nbsp;all&nbsp;groups.<br>
+@entity:&nbsp;larv.Entity.Entity&nbsp;instance.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table>
+</body></html>

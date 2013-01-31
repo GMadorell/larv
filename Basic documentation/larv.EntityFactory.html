@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: class EntityFactory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>larv.EntityFactory</strong> = <a name="larv.EntityFactory">class EntityFactory</a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;used&nbsp;for&nbsp;creating&nbsp;entities.<br>
+It&nbsp;has&nbsp;a&nbsp;createX&nbsp;for&nbsp;every&nbsp;entity&nbsp;in&nbsp;the&nbsp;game.<br>
+Handles&nbsp;the&nbsp;creation&nbsp;of&nbsp;the&nbsp;entities&nbsp;and&nbsp;also&nbsp;assigning&nbsp;components&nbsp;to&nbsp;them.<br>
+&nbsp;<br>
+USAGE:<br>
+&nbsp;&nbsp;When&nbsp;creating&nbsp;the&nbsp;entity&nbsp;factory&nbsp;for&nbsp;your&nbsp;own&nbsp;game,&nbsp;just&nbsp;subclass&nbsp;it&nbsp;and&nbsp;add<br>
+&nbsp;&nbsp;a&nbsp;createX&nbsp;for&nbsp;every&nbsp;X&nbsp;entity&nbsp;you&nbsp;want&nbsp;in&nbsp;your&nbsp;game&nbsp;(remember&nbsp;to&nbsp;import<br>
+&nbsp;&nbsp;all&nbsp;the&nbsp;components&nbsp;you&nbsp;are&nbsp;gonna&nbsp;use&nbsp;beforehand).<br>
+&nbsp;&nbsp;The&nbsp;entity&nbsp;factory&nbsp;will&nbsp;be&nbsp;needed&nbsp;when&nbsp;you&nbsp;create&nbsp;an&nbsp;larv.Engine.Engine<br>
+&nbsp;&nbsp;instance,&nbsp;so&nbsp;programmatically&nbsp;you&nbsp;will&nbsp;need&nbsp;to&nbsp;create&nbsp;it&nbsp;before&nbsp;the&nbsp;engine.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="EntityFactory-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="EntityFactory-bindToEntityManager"><strong>bindToEntityManager</strong></a>(self, entity_manager)</dt><dd><tt>Binds&nbsp;the&nbsp;EntityManager&nbsp;to&nbsp;the&nbsp;EntityFactory.<br>
+This&nbsp;method&nbsp;is&nbsp;called&nbsp;from&nbsp;the&nbsp;Engine&nbsp;on&nbsp;creation&nbsp;and&nbsp;can't&nbsp;be&nbsp;modified.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+@entity_manager:&nbsp;instance&nbsp;of&nbsp;larv.EntityManager.EntityManager</tt></dd></dl>
+
+<dl><dt><a name="EntityFactory-bindToGroupManager"><strong>bindToGroupManager</strong></a>(self, group_manager)</dt><dd><tt>Binds&nbsp;the&nbsp;GroupManager&nbsp;to&nbsp;the&nbsp;EntityFactory.<br>
+This&nbsp;method&nbsp;is&nbsp;called&nbsp;from&nbsp;the&nbsp;Engine&nbsp;on&nbsp;creation&nbsp;and&nbsp;can't&nbsp;be&nbsp;modified.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+@group_manager:&nbsp;instance&nbsp;of&nbsp;larv.GroupManager.GroupManager.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>entity_manager</strong></dt>
+</dl>
+<dl><dt><strong>group_manager</strong></dt>
+</dl>
+</td></tr></table>
+</body></html>

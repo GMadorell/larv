@@ -1,5 +1,7 @@
 # encoding: UTF-8
 from larv.EntityManager import EntityManager
+from larv.GroupManager import GroupManager
+from larv.EntityFactory import EntityFactory
 import abc
 
 class System(metaclass = abc.ABCMeta):
@@ -22,7 +24,15 @@ class System(metaclass = abc.ABCMeta):
         super().__init__
 
     @property
-    def entityManager(self):
+    def entity_manager(self):
+        return self.__entity_manager
+
+    @property
+    def group_manager(self):
+        return self.__group_manager
+
+    @property
+    def entity_manager(self):
         return self.__entity_manager
 
     def bindToEntityManager(self, entity_manager):
@@ -34,11 +44,29 @@ class System(metaclass = abc.ABCMeta):
         assert isinstance(entity_manager, EntityManager)
         self.__entity_manager = entity_manager
 
+    def bindToGroupManager(self, group_manager):
+        """
+        Method used by the engine when the system is added to it.
+        Can't be override.
+        @group_manager: instance of larv.GroupManager.GroupManager
+        """
+        assert isinstance(group_manager, GroupManager)
+        self.__group_manager = group_manager
+
+    def bindToEntityFactory(self, entity_factory):
+        """
+        Method used by the engine when the system is added to it.
+        Can't be override.
+        @entity_factory: instance of larv.EntityFactory.EntityFactory
+        """
+        assert isinstance(entity_factory, EntityFactory)
+        self.__entity_factory = entity_factory
+
     @abc.abstractmethod
     def update(self):
         """
         This abstract method will be called every tick of the game loop and
-        will iterate over every component the system is intended to work with
+        will iterate over every component the system is intended to work with,
         implementing game logic.
         Needs to be override.
         """

@@ -17,11 +17,11 @@ List of all methods:
     - createEntity(self)    
     - removeEntity(self, entity)  
 
-    - addComponent(self, entity, component)
-    - removeComponent(self, entity, component)
-    - hasComponent(self, entity, component)
-    - getComponent(self, entity, component)
-    - getComponentName(self, component)
+    - addComponent(self, entity, component)   |
+    - removeComponent(self, entity, component)|
+    - hasComponent(self, entity, component)   |> this methods could be passed to
+    - getComponent(self, entity, component)   |  a meta_entity if implemented
+    - getComponentName(self, component)       |
 
     - getEntitiesHavingComponent(self, component)
     - getEntitiesHavingComponents(self, *args)
@@ -34,15 +34,16 @@ class EntityManager:
     """
     EntityManager is a object that acts as the 'database' of the system.
     It's used for looking up entities, getting their list of components, creating
-    the entities (managing that they all have unique ID's), etc.
+    them (managing that they all have unique ID's), etc.
 
     When using components as arguments, you can use either a component of that
     type as the argument or (recommended) calling for the class_name of the component
-    like so: EntityManager.getEntitiesHavingComponent(HealthComponent.__name__).
+    like so: EntityManager.getEntitiesHavingComponent(HealthComponent.__name__),
+    except if the class explicitly says the opposite (read comments).
 
     NOTE: restricted to one component type per entity, so the same entity cannot
           have, as an example, two instances of HealthComponent. In order to change
-          that -> 2nd dict value should be a list.
+          that, 2nd dict value should be a list instead of a single component.
     """
     def __init__(self):
         """
@@ -69,10 +70,10 @@ class EntityManager:
         return self.__entities
 
     def generateNewId(self):
-        """Returns a new unique ID."""
-        n = self.__lowest_assigned_id
+        """Returns a new unique ID and increments counter of ID's."""
+        new_id = self.__lowest_assigned_id
         self.__lowest_assigned_id += 1
-        return n
+        return new_id
 
     def createEntity(self):
         """

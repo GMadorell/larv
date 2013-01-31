@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: class System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>larv.System</strong> = <a name="larv.System">class System</a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Abstract&nbsp;base&nbsp;class&nbsp;from&nbsp;which&nbsp;every&nbsp;system&nbsp;will&nbsp;inherit&nbsp;from.<br>
+Systems&nbsp;are&nbsp;responsables&nbsp;for&nbsp;the&nbsp;logic&nbsp;around&nbsp;the&nbsp;game.<br>
+Every&nbsp;system&nbsp;will&nbsp;need&nbsp;to&nbsp;reimplement&nbsp;the&nbsp;update&nbsp;method.<br>
+&nbsp;<br>
+Update&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;every&nbsp;game&nbsp;loop&nbsp;and&nbsp;must&nbsp;implement&nbsp;the&nbsp;logic&nbsp;<br>
+of&nbsp;the&nbsp;system&nbsp;(aka,&nbsp;where&nbsp;the&nbsp;magic&nbsp;happens).<br>
+&nbsp;<br>
+When&nbsp;wanting&nbsp;to&nbsp;get&nbsp;components&nbsp;from&nbsp;entity&nbsp;manager,&nbsp;remember&nbsp;to&nbsp;call&nbsp;for&nbsp;those<br>
+using&nbsp;component_class.__name__,&nbsp;else&nbsp;they&nbsp;will&nbsp;not&nbsp;be&nbsp;recognized.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="System-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Systems&nbsp;may&nbsp;not&nbsp;have&nbsp;to&nbsp;implement&nbsp;a&nbsp;__init__&nbsp;because&nbsp;they&nbsp;may&nbsp;not&nbsp;need<br>
+any&nbsp;extra&nbsp;info&nbsp;to&nbsp;work.</tt></dd></dl>
+
+<dl><dt><a name="System-bindToEntityFactory"><strong>bindToEntityFactory</strong></a>(self, entity_factory)</dt><dd><tt>Method&nbsp;used&nbsp;by&nbsp;the&nbsp;engine&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;added&nbsp;to&nbsp;it.<br>
+Can't&nbsp;be&nbsp;override.<br>
+@entity_factory:&nbsp;instance&nbsp;of&nbsp;larv.EntityFactory.EntityFactory</tt></dd></dl>
+
+<dl><dt><a name="System-bindToEntityManager"><strong>bindToEntityManager</strong></a>(self, entity_manager)</dt><dd><tt>Method&nbsp;used&nbsp;by&nbsp;the&nbsp;engine&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;added&nbsp;to&nbsp;it.<br>
+Can't&nbsp;be&nbsp;override.<br>
+@entity_manager:&nbsp;instance&nbsp;of&nbsp;larv.EntityManager.EntityManager</tt></dd></dl>
+
+<dl><dt><a name="System-bindToGroupManager"><strong>bindToGroupManager</strong></a>(self, group_manager)</dt><dd><tt>Method&nbsp;used&nbsp;by&nbsp;the&nbsp;engine&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;added&nbsp;to&nbsp;it.<br>
+Can't&nbsp;be&nbsp;override.<br>
+@group_manager:&nbsp;instance&nbsp;of&nbsp;larv.GroupManager.GroupManager</tt></dd></dl>
+
+<dl><dt><a name="System-update"><strong>update</strong></a>(self)</dt><dd><tt>This&nbsp;abstract&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;every&nbsp;tick&nbsp;of&nbsp;the&nbsp;game&nbsp;loop&nbsp;and<br>
+will&nbsp;iterate&nbsp;over&nbsp;every&nbsp;component&nbsp;the&nbsp;system&nbsp;is&nbsp;intended&nbsp;to&nbsp;work&nbsp;with,<br>
+implementing&nbsp;game&nbsp;logic.<br>
+Needs&nbsp;to&nbsp;be&nbsp;override.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>entity_manager</strong></dt>
+</dl>
+<dl><dt><strong>group_manager</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset(['update'])</dl>
+
+</td></tr></table>
+</body></html>

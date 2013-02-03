@@ -1,6 +1,6 @@
 # encode: UTF-8
 import larv
-
+import pprint
 
 class GroupManager:
     """
@@ -86,7 +86,7 @@ class GroupManager:
 
         return set(larv.Entity(id_) for id_ in return_set)
 
-    def getGroup(self, entity):
+    def getGroups(self, entity):
         """
         Returns a list of all the groups the entity is part of.
         @entity: larv.Entity.Entity instance
@@ -108,6 +108,34 @@ class GroupManager:
         assert isinstance(entity, larv.Entity)
         assert isinstance(group, str)
         return entity.id in self.entitiesByGroup[group.lower()]
+
+    ##### PYTHONIC METHODS FOR EASIER PROGRAMMING
+    def __str__(self):
+        """Returns a string representation of the class, useful when debugging."""
+        return pprint.pformat(self.entitiesByGroup, indent = 1)
+
+    def __getitem__(self, group):
+        """
+        Defines the usage of:
+            x = y[group]
+        which gets all the entities for that group.
+        """        
+        return self.get(group)
+
+    def __setitem__(self, group, entity):
+        """
+        Defines the usage of:
+            y[group] = entity
+        which adds the entity to the group.
+        """
+        self.add(entity, group)
+
+    def __delitem__(self, entity):
+        """
+        Defines the usage of:
+            del y[entity]
+        which removes the entity from all groups."""
+        self.removeCompletely(entity)
 
 if __name__ == '__main__':
     import pprint
@@ -157,6 +185,10 @@ if __name__ == '__main__':
     # print(gm.getGroup(ent2))
 
     # print(gm.isInGroup(ent2, 'monsters'), gm.isInGroup(larv.Entity(999),'monsters'))
+
+    # print(gm['monsters'])
+
+
 
 
 

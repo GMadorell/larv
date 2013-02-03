@@ -25,14 +25,17 @@ class System(metaclass = abc.ABCMeta):
 
     @property
     def entity_manager(self):
+        """Returns the entity manager assigned to the system."""
         return self.__entity_manager
 
     @property
     def group_manager(self):
+        """Returns the group manager assignet to the system."""
         return self.__group_manager
 
     @property
     def entity_manager(self):
+        """Returns the entity manager assigned to the system."""
         return self.__entity_manager
 
     def bindToEntityManager(self, entity_manager):

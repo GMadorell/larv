@@ -9,11 +9,11 @@ from larv.GroupManager import GroupManager
 class Engine:
     """
     The engine is the glue that puts everything together.
-    It holds an instance of a systems list (priority list),
-    an instance of an entity_manager an instance of 
-    a entity factory and an instance of a group manager, 
-    basically has an instance of everything and provides the
-    functionality for linking the different parts together.
+    It holds:
+        - an instance of a systems list (PriorityList): self.systems
+        - an instance of an entity manager:  self.entity_manager
+        - an instance of a group manager:    self.group_manager
+        - an instance of an entity_factory:  self.entity_factory
 
     When updating the game, one should only do a Engine.update()
     call, as the Engine will be responsable for updating every

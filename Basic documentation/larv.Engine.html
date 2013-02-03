@@ -10,11 +10,11 @@
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>The&nbsp;engine&nbsp;is&nbsp;the&nbsp;glue&nbsp;that&nbsp;puts&nbsp;everything&nbsp;together.<br>
-It&nbsp;holds&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;systems&nbsp;list&nbsp;(priority&nbsp;list),<br>
-an&nbsp;instance&nbsp;of&nbsp;an&nbsp;entity_manager&nbsp;an&nbsp;instance&nbsp;of&nbsp;<br>
-a&nbsp;entity&nbsp;factory&nbsp;and&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;group&nbsp;manager,&nbsp;<br>
-basically&nbsp;has&nbsp;an&nbsp;instance&nbsp;of&nbsp;everything&nbsp;and&nbsp;provides&nbsp;the<br>
-functionality&nbsp;for&nbsp;linking&nbsp;the&nbsp;different&nbsp;parts&nbsp;together.<br>
+It&nbsp;holds:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;systems&nbsp;list&nbsp;(PriorityList):&nbsp;self.<strong>systems</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;an&nbsp;instance&nbsp;of&nbsp;an&nbsp;entity&nbsp;manager:&nbsp;&nbsp;self.<strong>entity_manager</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;group&nbsp;manager:&nbsp;&nbsp;&nbsp;&nbsp;self.<strong>group_manager</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;an&nbsp;instance&nbsp;of&nbsp;an&nbsp;entity_factory:&nbsp;&nbsp;self.<strong>entity_factory</strong><br>
 &nbsp;<br>
 When&nbsp;updating&nbsp;the&nbsp;game,&nbsp;one&nbsp;should&nbsp;only&nbsp;do&nbsp;a&nbsp;Engine.<a href="#larv.Engine-update">update</a>()<br>
 call,&nbsp;as&nbsp;the&nbsp;Engine&nbsp;will&nbsp;be&nbsp;responsable&nbsp;for&nbsp;updating&nbsp;every<br>

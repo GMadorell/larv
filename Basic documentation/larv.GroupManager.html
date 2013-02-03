@@ -26,9 +26,23 @@ Usage:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;for&nbsp;it&nbsp;using&nbsp;self.<strong>group_manager</strong>.<a href="#larv.GroupManager-get">get</a>('hero')<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
+<dl><dt><a name="GroupManager-__delitem__"><strong>__delitem__</strong></a>(self, entity)</dt><dd><tt>Defines&nbsp;the&nbsp;usage&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;del&nbsp;y[entity]<br>
+which&nbsp;removes&nbsp;the&nbsp;entity&nbsp;from&nbsp;all&nbsp;groups.</tt></dd></dl>
+
+<dl><dt><a name="GroupManager-__getitem__"><strong>__getitem__</strong></a>(self, group)</dt><dd><tt>Defines&nbsp;the&nbsp;usage&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;y[group]<br>
+which&nbsp;gets&nbsp;all&nbsp;the&nbsp;entities&nbsp;for&nbsp;that&nbsp;group.</tt></dd></dl>
+
 <dl><dt><a name="GroupManager-__init__"><strong>__init__</strong></a>(self, engine)</dt><dd><tt>Constructor.<br>
 @engine:&nbsp;larv.Engine.Engine&nbsp;instance.<br>
 @entitiesByGroup:&nbsp;dictionary,&nbsp;key&nbsp;=&nbsp;group,&nbsp;value&nbsp;=&nbsp;set&nbsp;of&nbsp;entities</tt></dd></dl>
+
+<dl><dt><a name="GroupManager-__setitem__"><strong>__setitem__</strong></a>(self, group, entity)</dt><dd><tt>Defines&nbsp;the&nbsp;usage&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y[group]&nbsp;=&nbsp;entity<br>
+which&nbsp;adds&nbsp;the&nbsp;entity&nbsp;to&nbsp;the&nbsp;group.</tt></dd></dl>
+
+<dl><dt><a name="GroupManager-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;the&nbsp;class,&nbsp;useful&nbsp;when&nbsp;debugging.</tt></dd></dl>
 
 <dl><dt><a name="GroupManager-add"><strong>add</strong></a>(self, entity, group)</dt><dd><tt>Adds&nbsp;the&nbsp;given&nbsp;entity&nbsp;to&nbsp;the&nbsp;given&nbsp;grup.<br>
 Note&nbsp;that&nbsp;a&nbsp;entity&nbsp;can't&nbsp;be&nbsp;in&nbsp;the&nbsp;same&nbsp;group&nbsp;twice.<br>
@@ -41,7 +55,7 @@ When&nbsp;used&nbsp;with&nbsp;one&nbsp;arg&nbsp;(most&nbsp;common&nbsp;use),&nbs
 that&nbsp;are&nbsp;in&nbsp;that&nbsp;group.<br>
 @*args:&nbsp;name&nbsp;(string)&nbsp;of&nbsp;the&nbsp;groups&nbsp;that&nbsp;will&nbsp;be&nbsp;fetched.</tt></dd></dl>
 
-<dl><dt><a name="GroupManager-getGroup"><strong>getGroup</strong></a>(self, entity)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;groups&nbsp;the&nbsp;entity&nbsp;is&nbsp;part&nbsp;of.<br>
+<dl><dt><a name="GroupManager-getGroups"><strong>getGroups</strong></a>(self, entity)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;groups&nbsp;the&nbsp;entity&nbsp;is&nbsp;part&nbsp;of.<br>
 @entity:&nbsp;larv.Entity.Entity&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="GroupManager-isInGroup"><strong>isInGroup</strong></a>(self, entity, group)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;entity&nbsp;is&nbsp;contained&nbsp;in&nbsp;the&nbsp;given&nbsp;group,&nbsp;<br>

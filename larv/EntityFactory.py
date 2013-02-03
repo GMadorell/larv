@@ -1,16 +1,13 @@
 # encoding: UTF-8
 import pygame
 
-"""
-Entity factory is just a helper, it doesn't have any methods.
-When implementing a game, every entity will be created from here, so it's
-really only a class to put together all the building of entities for easier
-reading and usage of the rest of the code.
-"""
-
 class EntityFactory:
     """
-    Class used for creating entities.
+    Entity factory is just a helper, it doesn't have any methods.
+    When implementing a game, every entity will be created from here, so it's
+    really only a class to put together all the building of entities for easier
+    reading and usage of the rest of the code.
+
     It has a createX for every entity in the game.
     Handles the creation of the entities and also assigning components to them.
 

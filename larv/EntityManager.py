@@ -63,10 +63,12 @@ class EntityManager:
 
     @property
     def componentsByClass(self):
+        """Read only property for the mapping components-entities."""
         return self.__components_by_class
 
     @property
     def entities(self):
+        """Read only property for the entities id list."""
         return self.__entities
 
     def generateNewId(self):
@@ -252,6 +254,38 @@ class EntityManager:
     def getComponentName(self, component):
         """Given a component, returns it's name."""
         return component.__class__.__name__
+
+
+    ##### PYTHONIC METHODS FOR EASIER PROGRAMMING
+    def __getitem__(self, entity):
+        """
+        Defines the usage of:
+            x = y[entity]
+        which gets all the components for that entity.
+        """
+        assert isinstance(entity, Entity)
+        return self.getComponentsOfEntity(entity)
+
+    def __setitem__(self, entity, component):
+        """
+        Defines the usage of:
+            y[entity] = component
+        which adds the component to the entity.
+        """
+        assert isinstance(entity, Entity)
+        assert isinstance(component, Component)
+        self.addComponent(entity, component)
+
+    def __delitem__(self, entity):
+        """
+        Defines the usage of
+            del y[entity]
+        which removes the entity from the entity manager.
+        """
+        assert isinstance(entity, Entity)
+        self.removeEntity(entity)
+
+
 
 if __name__ == '__main__':
     import HealthComponent

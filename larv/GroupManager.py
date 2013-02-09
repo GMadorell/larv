@@ -1,4 +1,4 @@
-# encode: UTF-8
+# -*- coding: UTF-8 -*-
 import larv
 import pprint
 
@@ -68,7 +68,7 @@ class GroupManager:
 
     def get(self, *args):
         """
-        Returns a set of all the entities that are in every arg (which are supposed
+        Returns a list of all the entities that are in every arg (which are supposed
         to be groups).
         When used with one arg (most common use), will return only the entities
         that are in that group.
@@ -84,7 +84,7 @@ class GroupManager:
             else:
                 return_set = self.entitiesByGroup[arg.lower()]
 
-        return set(larv.Entity(id_) for id_ in return_set)
+        return list(larv.Entity(id_) for id_ in return_set)
 
     def getGroups(self, entity):
         """

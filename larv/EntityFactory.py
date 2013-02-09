@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- coding: UTF-8 -*-
 import pygame
 
 class EntityFactory:
@@ -15,7 +15,7 @@ class EntityFactory:
       When creating the entity factory for your own game, just subclass it and add
       a createX for every X entity you want in your game (remember to import
       all the components you are gonna use beforehand).
-      The entity factory will be needed when you create an larv.Engine.Engine
+      The entity factory will be needed when you create a larv.Engine.Engine
       instance, so programmatically you will need to create it before the engine.
     """
 

@@ -109,6 +109,19 @@ class GroupManager:
         assert isinstance(group, str)
         return entity.id in self.entitiesByGroup[group.lower()]
 
+    def doesGroupExist(self, group):
+        """
+        Returns True if the given group does exist and has at least one entity
+        in it, false otherwise.
+        @group: name of the group (str)
+        """
+        assert isinstance(group, str)
+        if group not in self.entitiesByGroup.keys():
+            return False
+        if len(self.entitiesByGroup[group]) == 0:
+            return False
+        return True
+
     ##### PYTHONIC METHODS FOR EASIER PROGRAMMING
     def __str__(self):
         """Returns a string representation of the class, useful when debugging."""

@@ -34,9 +34,9 @@ class System(metaclass = abc.ABCMeta):
         return self.__group_manager
 
     @property
-    def entity_manager(self):
-        """Returns the entity manager assigned to the system."""
-        return self.__entity_manager
+    def entity_factory(self):
+        """Returns the entity factory assigned to the system."""
+        return self.__entity_factory
 
     def bindToEntityManager(self, entity_manager):
         """

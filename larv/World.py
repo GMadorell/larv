@@ -18,6 +18,7 @@ class World:
     """
     def __init__(self):
         self.engine_stack = []
+        self.postupdate_functions = []
 
     def push(self, engine):
         """
@@ -33,15 +34,44 @@ class World:
         Raises EndProgramException if the stack is empty.
         """
         if len(self.engine_stack) == 0:
-            raise EndProgramException()
+            raise larv.EndProgramException()
         return self.engine_stack.pop()
+
+    def change(self, engine):
+        """
+        Exchanges the actual engine for the given engine.
+        The exchanged engine is removed from the stack and returned.
+        """
+        popped = self.pop()
+        self.push(engine)
+        return popped
 
     def update(self):
         """
         Activates (updates) the engine on top of the stack.
         """
         if len(self.engine_stack) == 0:
-            raise EndProgramException()
+            raise larv.EndProgramException()
 
         engine = self.engine_stack[-1]
         engine.update()
+
+        # Call the postupdate functions
+        for dic in self.postupdate_functions:
+            function = dic['function']
+            args = dic['args']
+            function(*args)
+        self.postupdate_functions = []
+
+    def addPostUpdateFunction(self, function, args = []):
+        """
+        Adds a function that will be called after the next update cicle is done.
+        The function will be called just one time.
+        @function: function object
+        @args: arguments that will be called on the function, needs to be a list
+               or tuple of all the arguments.
+        """
+        dic = {'function': function, 'args': args}
+        self.postupdate_functions.append(dic)
+
+

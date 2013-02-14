@@ -49,7 +49,7 @@ class EntityManager:
         """
         Constructor.
         @self.__entities: used for keeping all the active entities id's.
-        @self.__components_by_class: dict that will hold a list of each type of components.
+        @self.components_by_class: dict that will hold a list of each type of components.
             -structure: dictionary of dictionaries:
                 - key first dictionary = class name of component
                 - value first dictionary = dictionary
@@ -58,13 +58,13 @@ class EntityManager:
         @self.__lowest_assigned_id: used for assigning a id whenever a new entity is created.
         """        
         self.__entities = []
-        self.__components_by_class = {}
+        self.components_by_class = {}
         self.__lowest_assigned_id = 1
 
     @property
     def componentsByClass(self):
         """Read only property for the mapping components-entities."""
-        return self.__components_by_class
+        return self.components_by_class
 
     @property
     def entities(self):
@@ -97,7 +97,7 @@ class EntityManager:
         assert isinstance(entity, Entity)
         assert entity.id in self.__entities
 
-        for key, value in self.__components_by_class.items():
+        for key, value in self.components_by_class.items():
             if entity.id in value.keys():
                 value.pop(entity.id)
         self.__entities.remove(entity.id)
@@ -112,13 +112,13 @@ class EntityManager:
         assert isinstance(component, Component)
         component_name = self.getComponentName(component)
         # Use setdefault so if it didn't exist we create a new dict
-        second_dict = self.__components_by_class.setdefault(component_name, {})
+        second_dict = self.components_by_class.setdefault(component_name, {})
         second_dict[entity.id] = component
 
         ## DEBUG
         # print(entity.id, )
-        # print (self.__components_by_class)
-        # return self.__components_by_class
+        # print (self.components_by_class)
+        # return self.components_by_class
         ## /DEBUG
 
     def removeComponent(self, entity, component):
@@ -132,12 +132,12 @@ class EntityManager:
         if not isinstance(component, str):
             component = self.getComponentName(component)
 
-        if component not in self.__components_by_class:
+        if component not in self.components_by_class:
             return None
-        if entity.id not in self.__components_by_class[component]:
+        if entity.id not in self.components_by_class[component]:
             return None
         
-        self.__components_by_class[component].pop(entity.id)
+        self.components_by_class[component].pop(entity.id)
 
     def hasComponent(self, entity, component):
         """
@@ -149,9 +149,9 @@ class EntityManager:
         if not isinstance(component, str):
             component = self.getComponentName(component)
 
-        if component not in self.__components_by_class:
+        if component not in self.components_by_class:
             return False
-        if entity.id not in self.__components_by_class[component]:
+        if entity.id not in self.components_by_class[component]:
             return False
         return True
 
@@ -168,11 +168,11 @@ class EntityManager:
         if not isinstance(component, str):
             component = self.getComponentName(component)
 
-        if component not in self.__components_by_class:
+        if component not in self.components_by_class:
             return None
-        if entity.id not in self.__components_by_class[component]:
+        if entity.id not in self.components_by_class[component]:
             return None
-        return self.__components_by_class[component][entity.id]
+        return self.components_by_class[component][entity.id]
 
     def getEntitiesHavingComponent(self, component):
         """
@@ -183,11 +183,11 @@ class EntityManager:
         # If component isn't a string, we transform it to a string
         if not isinstance(component, str):
             component = self.getComponentName(component)
-        if component not in self.__components_by_class:
+        if component not in self.components_by_class:
             raise KeyError('Error: \'{0}\' not found (component)'.format(component))
         # Then we iterate over the components dictionary and fill the return list
         entites_list = []
-        comp_dict = self.__components_by_class[component]
+        comp_dict = self.components_by_class[component]
         for key in comp_dict:
             entites_list.append(Entity(key))
         return entites_list
@@ -231,7 +231,7 @@ class EntityManager:
         """
         assert isinstance(entity, Entity)
         return_list = []
-        for key, value in self.__components_by_class.items():
+        for key, value in self.components_by_class.items():
             component = value.get(entity.id, None)
             if component:
                 return_list.append(component)
@@ -244,10 +244,10 @@ class EntityManager:
         """
         if not isinstance(component, str):
             component = self.getComponentName(component)
-        if component not in self.__components_by_class:
+        if component not in self.components_by_class:
             raise KeyError('Error: \'{0}\' not found (component)'.format(component))
         return_list = []
-        for value in self.__components_by_class[component].values():
+        for value in self.components_by_class[component].values():
             return_list.append(value)
         return return_list
 
